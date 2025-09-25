@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інтерактивне меню | Смак літа</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uW/r9xT6pXTz/u8PqE4S5xO3N/zBqL48p/6dE6E3z98F9z0v/G7vO8z2uB8z5r5x+c0xP6w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Chosen Palette: Ocean Breeze (Teal, Gray) -->
+    <!-- Application Structure Plan: The application now presents a clean, static, single-page menu. A simple navigation bar allows for quick jumps between sections. The primary focus is on clear presentation of each dish with a placeholder for a corresponding image. This structure was chosen to prioritize visual appeal and direct access to dish information over data analysis, making it an ideal choice for a customer-facing menu. -->
+    <!-- Visualization & Content Choices: The analytics and sorting features were removed to simplify the user experience. The menu items are now presented in a clean grid layout with placeholders for images, which is a standard and highly effective visual presentation for a restaurant menu. The navigation remains to provide easy access to different dish categories. The goal is to inform and entice the user visually without unnecessary data-focused interactions. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .nav-link {
+            transition: all 0.3s;
+        }
+        .nav-link:hover {
+            color: #14b8a6; 
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between py-4">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <h1 class="text-3xl font-bold text-teal-700">Смак літа</h1>
+                    <p class="text-gray-500">Інтерактивне сезонне меню</p>
+                </div>
+                <nav id="main-nav" class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm font-semibold text-gray-600">
+                    <a href="#cold-appetizers" class="nav-link">Холодні закуски</a>
+                    <a href="#hot-appetizers" class="nav-link">Гарячі закуски</a>
+                    <a href="#first-courses" class="nav-link">Перші страви</a>
+                    <a href="#main-courses" class="nav-link">Основні страви</a>
+                    <a href="#desserts" class="nav-link">Десерти</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="cold-appetizers" class="menu-section mb-12 pt-16 -mt-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-teal-700">Холодні закуски</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+        </section>
+
+        <section id="hot-appetizers" class="menu-section mb-12 pt-16 -mt-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-teal-700">Гарячі закуски</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+        </section>
+
+        <section id="first-courses" class="menu-section mb-12 pt-16 -mt-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-teal-700">Перші страви</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+        </section>
+
+        <section id="main-courses" class="menu-section mb-12 pt-16 -mt-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-teal-700">Основні страви</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+        </section>
+        
+        <section id="desserts" class="menu-section pt-16 -mt-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-teal-700">Десерти</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-gray-800 text-white mt-12 py-6">
+        <div class="container mx-auto text-center px-4">
+            <p>&copy; 2025 Смак літа. Всі права захищено.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuData = {
+                coldAppetizers: [
+                    { name: 'Карпачо з лосося з цитрусовим соусом', price: 245, description: 'Ніжні слайси лосося, замариновані в лимонному соку, з додаванням каперсів, мікрогріну та легкого цитрусового соусу. Подається з грінками.', icon: 'fa-solid fa-fish-cooked' },
+                    { name: 'Тартар з телятини з перепелиним яйцем', price: 210, description: 'Рубане вручну філе телятини, заправлене гірчицею, оливковою олією, цибулею шалот та свіжозмеленим перцем. Подається з перепелиним жовтком та тостами.', icon: 'fa-solid fa-cow' },
+                    { name: 'Асорті свіжих літніх овочів з соусом "Вінегрет"', price: 145, description: 'Свіжі огірки, помідори, болгарський перець, редис та зелень, заправлені соусом "Вінегрет" на основі оливкової олії та бальзамічного оцту.', icon: 'fa-solid fa-carrot' },
+                    { name: 'Капрезе з сиром "Бурата" та томатами чері', price: 185, description: 'Сир "Бурата" з вершковою серединкою, подається з ароматними томатами чері, свіжим базиліком та соусом "Песто".', icon: 'fa-solid fa-cheese' },
+                    { name: 'Запечений перець з фетою та волоськими горіхами', price: 160, description: 'Свіжий солодкий перець, запечений на грилі, заправлений оливковою олією, фетою та посипаний подрібненими волоськими горіхами.', icon: 'fa-solid fa-pepper-hot' }
+                ],
+                hotAppetizers: [
+                    { name: 'Креветки гриль у вершковому соусі', price: 280, description: 'Тигрові креветки, обсмажені на грилі, у вершковому соусі з часником та петрушкою. Подаються з хрустким багетом.', icon: 'fa-solid fa-shrimp' },
+                    { name: 'Запечений камамбер з медом та розмарином', price: 195, description: 'Камамбер, запечений до золотистої скоринки, подається з рідким медом, свіжим розмарином та хрусткими грінками.', icon: 'fa-solid fa-cheese' },
+                    { name: 'Міні-пиріжки з куркою та грибами', price: 150, description: 'Домашні міні-пиріжки з ніжною начинкою з курки та лісових грибів. Подаються гарячими з легким сметанним соусом.', icon: 'fa-solid fa-pie' }
+                ],
+                firstCourses: [
+                    { name: 'Холодний борщ на кефірі', price: 120, description: 'Класичний холодний борщ на основі кефіру з відварною картоплею, яйцем, свіжими огірками та зеленню.', icon: 'fa-solid fa-bowl-food' },
+                    { name: 'Крем-суп з гарбуза з імбиром та кокосовим молоком', price: 135, description: 'Ніжний крем-суп, приготований з гарбуза, свіжого імбиру та кокосового молока. Прикрашений насінням гарбуза.', icon: 'fa-solid fa-bowl-food' },
+                    { name: 'Курячий бульйон з домашньою локшиною', price: 110, description: 'Легкий та ароматний бульйон з курячого філе та домашньої локшини. Ідеальний для тих, хто прагне тепла.', icon: 'fa-solid fa-pot-food' }
+                ],
+                mainCourses: [
+                    { name: 'Філе міньйон з картопляним пюре та спаржею', price: 420, description: 'Ніжне філе міньйон, просмажене до ступеня "медіум", подається з вершковим картопляним пюре та бланшированою спаржею.', icon: 'fa-solid fa-steak' },
+                    { name: 'Стейк "Рібай" з соусом "Чімічурі"', price: 390, description: 'Соковитий стейк "Рібай", приготований на грилі, подається з ароматним трав\'яним соусом "Чімічурі".', icon: 'fa-solid fa-steak' },
+                    { name: 'Ризото з морепродуктами та шафраном', price: 350, description: 'Класичне італійське ризото, приготоване з тигровими креветками, мідіями, кальмарами, з додаванням шафрану та сиру пармезан.', icon: 'fa-solid fa-bowl-food' },
+                    { name: 'Свинна вирізка з овочами гриль', price: 270, description: 'Ніжна свинна вирізка, запечена на грилі, подається з сезонними овочами гриль (цукіні, перець, цибуля).', icon: 'fa-solid fa-pig' },
+                    { name: 'Філе палтуса з соусом "Голландський"', price: 315, description: 'Соковите філе палтуса, запечене в духовці, подається з класичним вершковим соусом "Голландський" та відварною броколі.', icon: 'fa-solid fa-fish-cooked' },
+                    { name: 'Манті з яловичиною та сметанним соусом', price: 230, description: 'Домашні манті, приготовані на пару, з соковитою начинкою з рубленої яловичини. Подаються зі свіжим сметанним соусом.', icon: 'fa-solid fa-bowl-food' },
+                    { name: 'Равіолі з сиром "Рікота" та шпинатом', price: 255, description: 'Ніжні равіолі з сиром "Рікота" та шпинатом, подаються під легким вершковим соусом. За бажанням, можна додати прошутто.', icon: 'fa-solid fa-bowl-food' }
+                ],
+                desserts: [
+                    { name: 'Полуничний чизкейк', price: 140, description: 'Класичний чизкейк, приготований з сиру "Філадельфія" на основі пісочного печива. Прикрашений свіжою полуницею.', icon: 'fa-solid fa-cake-slice' },
+                    { name: 'Шоколадний фондан з ванільним морозивом', price: 150, description: 'Гарячий шоколадний кекс з рідкою серцевиною, подається з кулькою ванільного морозива.', icon: 'fa-solid fa-chocolate' },
+                    { name: 'Панна-котта з малиновим соусом', price: 130, description: 'Ніжний італійський вершковий десерт, подається з кислим малиновим соусом та свіжою м\'ятою.', icon: 'fa-solid fa-ice-cream' }
+                ]
+            };
+            
+            const renderMenuSection = (category) => {
+                const section = document.querySelector(`#${category.id}`);
+                const grid = section.querySelector('.grid');
+                const categoryKey = category.id.replace(/-./g, match => match[1].toUpperCase());
+                
+                const items = menuData[categoryKey];
+
+                grid.innerHTML = items.map(item => `
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 flex flex-col">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center text-teal-700 text-6xl">
+                            <i class="${item.icon}"></i>
+                        </div>
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold mb-2">${item.name}</h3>
+                            <p class="text-gray-600 text-sm mb-4">${item.description}</p>
+                        </div>
+                        <div class="p-6 bg-gray-50 text-right">
+                             <span class="text-2xl font-bold text-teal-800">${item.price} грн</span>
+                        </div>
+                    </div>
+                `).join('');
+            };
+
+            document.querySelectorAll('.menu-section').forEach(section => renderMenuSection(section));
+        });
+    </script>
+</body>
+</html>
